@@ -1,19 +1,40 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+// JSX (transpiled before it reaches the JS) -- PARCEL  -  BABEL
 
-const parent = React.createElement('div', { id: 'parent' },
-     [React.createElement('div', { id: 'child1' }, 
-          [React.createElement('h1', { id: 'heading' }, 'Heading1 from nested react'),
-               React.createElement('p', { id: 'para1' }, 'Paragraph1 from nested react')
-          ]),
-          React.createElement('div', { id: 'child2' }, 
-               [React.createElement('h1', { id: 'headin2' }, 'Heading2 from nested react'),
-                    React.createElement('p', { id: 'para2' }, 'Paragraph2 from nested react')
-               ]),
-     ]
-)
+// JSX => Babel transpiles it into React.createElement => ReactElement- JS Object => HTMLElement(render)
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// React Component
+const Title = () => {
+  return (
+  <h1 className="heading" tabIndex="4">
+    Namaste React Using JSX
+  </h1>
+)};
 
-root.render(parent);
+const Button = () => {
+     return (
+          <button className="btn">Click Here</button>
+     )
+}
+
+
+// Component Composition
+const HeadingComponent = () => {
+     return (
+          <div className="container">
+               <Title/>
+               <h1 className="heading">Namaste React Functional Component</h1>;
+               <Button/>
+          </div>
+     )
+}
+
+const HeadingComponent2 = () => <h1 className="heading">Namaste React Functional Component2</h1>;
+
+
+
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<HeadingComponent/>);

@@ -1,5 +1,76 @@
-.heading{
-     color: brown;
-     font-size: 65px;
+body{
+     padding: 0;
+     margin: 0;
+}
+.header{
+     padding: 5px 30px;
+     align-items: center;
+     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+     background: #f7f8f9;
+}
 
+.header .navBar{
+     max-width: 1200px;
+     display:flex;
+     justify-content: space-between;
+     margin: auto;
+}
+.header .logo{
+    
+}
+
+.header .logo img{
+     width: 150px;
+}
+
+.header .nav-items{
+
+}
+.header .nav-items ul{
+     display: flex;
+     justify-content: space-around;
+     list-style: none;
+}
+.header .nav-items ul li{
+     margin: 5px 15px;
+     font-size: 24px;
+}
+
+.body{ 
+     max-width: 1200px;
+     margin: auto;
+     padding: 30px 0px 30px;
+}
+.restro-container{
+     margin-top: 20px;
+     display: flex;
+     justify-content: space-between;
+     flex-wrap: wrap;
+}
+.restroCard{
+     width: 250px;
+     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+     padding: 10px;
+     border-radius: 10px;
+     cursor: pointer;
+     margin-bottom: 20px;
+     border: 1px solid transparent;
+}
+.restroCard:hover{
+     border: 1px solid #444;
+}
+
+.restroCard img{
+     width: 100%;
+}
+
+.search{
+     padding: 10px 10px;
+}
+
+.footer{
+     max-width: 1200px;
+     margin: auto;
+     padding: 30px 0px;
+     background-color: #f0f0f0;
 }

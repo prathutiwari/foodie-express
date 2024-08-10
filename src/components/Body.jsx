@@ -1,11 +1,12 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
      // Local State Variable  - Super powerful Variable
      const [listOfRestaurants, setListOfRestaurant] = useState([]);
-     const[filteredRestaurant, setFilterRestaurant] = useState([]);
+     const [filteredRestaurant, setFilterRestaurant] = useState([]);
 
      const [searchText, setSearchText] = useState("");
 
@@ -15,7 +16,6 @@ const Body = () => {
 
      const fetchData = async () => {
           const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.449923&lng=80.3318736&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
-          console.log(data.body)
           const json = await data.json();
           // console.log(json?.data?.cards)
           setListOfRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -38,12 +38,12 @@ const Body = () => {
 
 
                     <div className="search">
-                         <input type="text" className="searchInput" value={searchText} onChange={(e)=>{
+                         <input type="text" className="searchInput" value={searchText} onChange={(e) => {
                               setSearchText(e.target.value);
-                         }}/>
-                         <button className="filterBtn" onClick={()=>{
+                         }} />
+                         <button className="filterBtn" onClick={() => {
                               const filterSearchList = listOfRestaurants.filter(
-                                   (res)=> res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                                   (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
                               )
                               setFilterRestaurant(filterSearchList);
                          }}>Filter</button>
@@ -64,7 +64,9 @@ const Body = () => {
 
                <div className="restro-container">
                     {filteredRestaurant?.map((restaurant) => (
-                         <RestaurantCard key={restaurant?.info?.id} resData={restaurant} />
+                         <Link key={restaurant?.info?.id} to={'/restaurants/' + restaurant?.info?.id}>
+                              <RestaurantCard resData={restaurant} />
+                         </Link>
                     ))}
                </div>
           </div>

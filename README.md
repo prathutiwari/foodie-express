@@ -30,3 +30,11 @@
      -Named Export/Import
           export const COMPONENT;
           import {COMPONENT} from "path";
+
+# Redux Toolkit
+     - Install @reduxjs/toolkit and react-redux
+     - Build our own store
+     - Connect our store to our app
+     - Slice (cart slice)
+     - Dispatch action
+     - Selector

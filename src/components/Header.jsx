@@ -6,7 +6,6 @@ import userContext from '../utils/userContext';
 import { useSelector } from 'react-redux';
 
 const Header = () => {
-
      const [btnText, setBtnText] = useState("LogIn");
 
      useEffect(() => {
@@ -15,7 +14,7 @@ const Header = () => {
 
      const onlineStatus = useOnlineStatus();
 
-     const data = useContext(userContext);
+     const {loggedInUser} = useContext(userContext);
 
      // Subscribing to the store using Selector
      const cartItems = useSelector((store) => {
@@ -25,7 +24,7 @@ const Header = () => {
 
      return (
           <div className="px-5 py-3 shadow-md bg-[#fff]">
-               <div className="flex justify-between items-center max-w-[1200] mx-auto">
+               <div className="flex justify-between items-center max-w-[1500] mx-auto">
                     <div className="logo">
                          <img
                               src={LOGO_URL}
@@ -36,23 +35,20 @@ const Header = () => {
                     
                     <div className="nav-items">
                          <ul className='flex items-center'>
-                              <li className='mx-4 my-1 cursor-pointer text-xl'>
+                              <li className='mx-4 my-1 cursor-pointer text-base'>
                                    Online Status: {onlineStatus ? '✅' : '🔴'}
                               </li>
-                              <li className='mx-4 my-1 cursor-pointer text-xl'>
+                              <li className='mx-4 my-1 cursor-pointer text-base'>
                                    <Link to="/">Home</Link>
                               </li>
-                              <li className='mx-4 my-1 cursor-pointer text-xl'>
+                              {/* <li className='mx-4 my-1 cursor-pointer text-base'>
                                    <Link to="/grocery">Grocery</Link>
-                              </li>
-                              <li className='mx-4 my-1 cursor-pointer text-xl'>
+                              </li> */}
+                              <li className='mx-4 my-1 cursor-pointer text-base'>
                                    <Link to="/about">About</Link>
                               </li>
-                              <li className='mx-4 my-1 cursor-pointer text-xl'>
+                              <li className='mx-4 my-1 cursor-pointer text-base'>
                                    <Link to="/contact">Contact</Link>
-                              </li>
-                              <li className='mx-4 my-1 cursor-pointer text-xl font-bold'>
-                                   <Link to="/cart">Cart({cartItems.length})</Link>
                               </li>
                               <button 
                                    className='login mx-4' 
@@ -60,7 +56,10 @@ const Header = () => {
                                         btnText == 'LogIn' ? setBtnText('LogOut') : setBtnText('LogIn')
                                    } }>{btnText}
                               </button>
-                              <li className='mx-4 my-1 cursor-pointer text-xl font-bold text-[18px]'>{data.loggedInUser}</li>
+                              {/* <li className='mx-4 my-1 cursor-pointer text-base font-semibold text-[18px]'>{loggedInUser}</li> */}
+                              <li className='mx-4 my-1 cursor-pointer text-base font-semibold relative'>
+                                   <Link to="/cart">🛒 <span className='text-[10px] absolute top-[-10px]'>{cartItems.length > 0 ? cartItems.length : ''}</span></Link>
+                              </li>
                          </ul>
                     </div>
                </div>

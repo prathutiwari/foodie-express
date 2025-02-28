@@ -3,7 +3,6 @@ import { CDN_RESTAURANT_URL} from "../utils/constants"
 import { addItem } from "../utils/cartSlice"
 
 const RestaurantItemList = ({listData}) =>{
-     // console.log(listData)
 
      const dispatch = useDispatch()
 
@@ -33,7 +32,7 @@ const RestaurantItemList = ({listData}) =>{
                                              alt=""
                                              className='w-[150px] h-[120px] rounded-xl object-cover mb-4'
                                         />
-                                        <button className="absolute text-green-600 text-[17px] font-bold py-[2px] px-8 border-[2px] bottom-[3px] left-[25px] bg-white rounded-md" onClick={()=> handleAddItem(item)}>ADD</button>
+                                        <button className="absolute text-green-600 text-[17px] font-bold py-[2px] px-8 border-[2px] bottom-[3px] left-[18px] bg-white rounded-md" onClick={()=> handleAddItem(item)}>ADD</button>
                                    </div>
                               </div>
                          )

@@ -20,9 +20,8 @@ const Body = () => {
      const fetchData = async () => {
           const data = await fetch(RESTAURANT_LIST_URL);
           const json = await data.json();
-          setListOfRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-          setFilterRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-          console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+          setListOfRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+          setFilterRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
      }
 
      const onlineStatus = useOnlineStatus();
@@ -38,7 +37,7 @@ const Body = () => {
      return listOfRestaurants.length === 0 ? (
           <Shimmer />
      ) : (
-          <div className="body max-w-[1200] mx-auto">
+          <div className="body max-w-[1500] mx-auto">
                <div className="flex justify-between items-center my-8">
                     <div className="flex justify-center items-center">
                          <input type="email" name="email" value={searchText} onChange={(e) => {
@@ -65,7 +64,7 @@ const Body = () => {
 
                </div>
 
-               <div className="flex flex-wrap justify-between mt-[30px]">
+               <div className="flex flex-wrap justify-between mt-[30px] gap-4 items-stretch">
                     {filteredRestaurant?.map((restaurant) => (
                          <Link key={restaurant?.info?.id} to={'/restaurants/' + restaurant?.info?.id}>
                               {

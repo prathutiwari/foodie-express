@@ -20,7 +20,6 @@ const Header = () => {
      const cartItems = useSelector((store) => {
           return store.cart.items;
      })
-     console.log(cartItems)
 
      return (
           <div className="px-5 py-3 shadow-md bg-[#fff]">

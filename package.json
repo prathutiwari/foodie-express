@@ -1,7 +1,8 @@
 {
-  "name": "namaste-react",
+  "name": "swiggy-clone",
   "version": "1.0.0",
-  "description": "This is Namaste React by Prathu Tiwari",
+  "description": "This is Swiggy Clone by Prathu Tiwari",
+  "type": "module",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
